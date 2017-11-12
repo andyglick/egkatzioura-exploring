@@ -1,9 +1,11 @@
 package com.gkatzioura;
 
-import com.gkatzioura.service.AsynchronousService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+
+import com.gkatzioura.service.AsynchronousService;
+
+import javax.inject.Inject;
 
 /**
  * Created by gkatzioura on 4/26/17.
@@ -11,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Scheduler {
 
-    @Autowired
+    @Inject
     private AsynchronousService checkAsyncService;
 
     @Scheduled(fixedDelay = 10000)

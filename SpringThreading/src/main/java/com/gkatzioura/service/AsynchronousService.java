@@ -1,18 +1,21 @@
 package com.gkatzioura.service;
 
-import com.gkatzioura.MyThread;
-import com.gkatzioura.persistence.Employee;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import com.gkatzioura.MyThread;
+import com.gkatzioura.persistence.Employee;
+
 import java.util.List;
 import java.util.concurrent.CompletableFuture;
+
+import javax.inject.Inject;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  * Created by gkatzioura on 4/26/17.
@@ -20,10 +23,10 @@ import java.util.concurrent.CompletableFuture;
 @Service
 public class AsynchronousService {
 
-    @Autowired
+    @Inject
     private TaskExecutor taskExecutor;
 
-    @Autowired
+    @Inject
     private ApplicationContext applicationContext;
 
     @PersistenceContext
